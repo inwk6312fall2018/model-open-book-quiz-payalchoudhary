@@ -1,6 +1,10 @@
 import pyCardDeck
 from pyCardDeck.cards import PokerCard
 
+class Player:
+	def __intit__(self, players:list)
+		self.players = players
+	
 def generate_initial_deck():
 	cards=[]
 	suit = ["Hearts","Spades","Clubs","Diamonds"]
@@ -11,5 +15,6 @@ def generate_initial_deck():
 			cards.append((item,name))
 	print('Generated deck of cards for the table')
 	return cards
+
 deck = generate_initial_deck()
 print(deck)
