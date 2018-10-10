@@ -1,13 +1,18 @@
+""" Referenced from https://pycarddeck.readthedocs.io/en/latest/examples/poker.html"""
+
 import pyCardDeck
 from pyCardDeck.cards import PokerCard
 
-class Player:
 
-	def __init__(self,name):
-		self.name = str(name)
+def generate_initial_deck():
+		cards=[]
+		suit = ["Hearts","Spades","Clubs","Diamonds"]
+		ranks= {'1':'One','2':'Two','3':'Three','4':'Four','5':'Five','6':'Six','7':'Seven','8':'Eight','9':'Nine','10':'Ten','J':'Jack','Q':'Queen','K':'King'}
 
-	def __str__(self):
-		return self.name
+		for item in suit:
+			for rank,name in ranks.items():
+				cards.append((item,name))
+		print('Generated deck of cards for the table')
 
 class PokerTable:
 	
@@ -33,18 +38,9 @@ class PokerTable:
 				player.append(card)
 			print("Dealt {} to player {}".format(card, player))
 
-def generate_initial_deck():
-		cards=[]
-		suit = ["Hearts","Spades","Clubs","Diamonds"]
-		ranks= {'1':'One','2':'Two','3':'Three','4':'Four','5':'Five','6':'Six','7':'Seven','8':'Eight','9':'Nine','10':'Ten','J':'Jack','Q':'Queen','K':'King'}
-
-		for item in suit:
-			for rank,name in ranks.items():
-				cards.append((item,name))
-		print('Generated deck of cards for the table')
 		return cards
 
-PT = PokerTable(5)
 print(generate_initial_deck())
+PT = PokerTable(5)
 print(PT.draw_cards(5))
 
